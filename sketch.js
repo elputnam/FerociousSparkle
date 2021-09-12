@@ -56,7 +56,7 @@ class Element {
     noStroke();
     rectMode(CENTER)
     fill(this.H1, random(100), random(100), this.lifespan);
-    rect(this.loc.x, this.loc.y, random(5), random(5));
+    rect(this.loc.x, this.loc.y, random(3), random(3));
   }
 
   //make the squares disappear when faded out
@@ -70,7 +70,7 @@ class Element {
 }
 
 function mousePressed(){
-  background(random(300, 360), 100, random(50));
+  background(random(300, 360), 100, random(50),);
 }
 
 function touchStarted(){
