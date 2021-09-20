@@ -70,7 +70,7 @@ class Element {
 }
 
 function mousePressed(){
-  background(random(300, 360), 100, random(50),);
+  background(random(300, 360), 100, random(50));
 }
 
 function touchStarted(){
