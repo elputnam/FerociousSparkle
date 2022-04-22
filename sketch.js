@@ -76,3 +76,7 @@ function mousePressed(){
 function touchStarted(){
   background(random(300, 360), 100, random(50));
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
