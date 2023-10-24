@@ -2,16 +2,23 @@ let sparks = [];
 let x; 
 let y; 
 
+var capturer = new CCapture({
+  format:'webm', 
+  workersPath: 'js/',
+  framerate: 10
+});
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1920, 1080);
   colorMode(HSB, 360, 100, 100, 100);
   x = width/2;
   y = height/2;
-  background(0, 100, 20)
+  background(255)
+  frameRate(10);
 }
 
 function draw() {
+  if (frameCount==1) capturer.start(); //
   // background(random(10), 100, random(100), 1);
 
   //array of sparks
@@ -28,6 +35,12 @@ function draw() {
     x = random(width);
     y = random(height);
   }
+
+  capturer.capture(document.getElementById('defaultCanvas0'));  
+  if (frameCount==1200){
+    save_record();
+  }
+  print(frameCount);
   }
 
 class Element {
@@ -55,7 +68,8 @@ class Element {
   display(){
     noStroke();
     rectMode(CENTER)
-    fill(this.H1, random(100), random(100), this.lifespan);
+    //fill(this.H1, random(100), random(100), this.lifespan);
+    fill(0, this.lifespan);
     rect(this.loc.x, this.loc.y, random(3), random(3));
   }
 
@@ -79,4 +93,8 @@ function touchStarted(){
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+}
+
+function save_record() {
+  capturer.save();
 }
