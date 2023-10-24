@@ -13,11 +13,12 @@ function setup() {
   colorMode(HSB, 360, 100, 100, 100);
   x = width/2;
   y = height/2;
-  background(255)
+  background(0)
   frameRate(10);
 }
 
 function draw() {
+  background(0,1);
   if (frameCount==1) capturer.start(); //
   // background(random(10), 100, random(100), 1);
 
@@ -31,7 +32,7 @@ function draw() {
       }
     }
 
-  if (frameCount%19==0){
+  if (frameCount%30==0){
     x = random(width);
     y = random(height);
   }
@@ -69,8 +70,8 @@ class Element {
     noStroke();
     rectMode(CENTER)
     //fill(this.H1, random(100), random(100), this.lifespan);
-    fill(0, this.lifespan);
-    rect(this.loc.x, this.loc.y, random(3), random(3));
+    fill(255, this.lifespan);
+    ellipse(this.loc.x, this.loc.y, random(5), random(5));
   }
 
   //make the squares disappear when faded out
