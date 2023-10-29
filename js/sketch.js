@@ -18,7 +18,7 @@ function setup() {
 }
 
 function draw() {
-  background(0,1);
+  background(0, 1);
   if (frameCount==1) capturer.start(); //
   // background(random(10), 100, random(100), 1);
 
@@ -38,7 +38,7 @@ function draw() {
   }
 
   capturer.capture(document.getElementById('defaultCanvas0'));  
-  if (frameCount==1200){
+  if (frameCount==500){
     save_record();
   }
   print(frameCount);
@@ -71,7 +71,7 @@ class Element {
     rectMode(CENTER)
     //fill(this.H1, random(100), random(100), this.lifespan);
     fill(255, this.lifespan);
-    ellipse(this.loc.x, this.loc.y, random(5), random(5));
+    ellipse(this.loc.x, this.loc.y, random(5,10), random(5,10));
   }
 
   //make the squares disappear when faded out
@@ -84,17 +84,17 @@ class Element {
   }
 }
 
-function mousePressed(){
-  background(random(300, 360), 100, random(50));
-}
+// //function mousePressed(){
+//   background(random(300, 360), 100, random(50));
+// }
 
-function touchStarted(){
-  background(random(300, 360), 100, random(50));
-}
+// //function touchStarted(){
+//   background(random(300, 360), 100, random(50));
+// }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }
 
 function save_record() {
   capturer.save();
